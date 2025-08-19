@@ -31,6 +31,13 @@ app.use("/api/session",sessionRoutes);
 app.use("/api/question",questionRoutes);
 app.use("/api/ai",aiRoutes);
 
+app.get("/",(req,res)=>{
+    res.status(200).json({
+        error:false,
+        message:"Welcome to AI Interview Preparations"
+    })
+})
+
 connectDatabase();
 module.exports = app;
 
