@@ -31,8 +31,11 @@ app.use("/api/session",sessionRoutes);
 app.use("/api/question",questionRoutes);
 app.use("/api/ai",aiRoutes);
 
-app.listen(Port,()=>{
-    console.log("Server is running at the port : ",Port);
-    connectDatabase();
-})
+connectDatabase();
+module.exports = app;
+
+// app.listen(Port,()=>{
+//     console.log("Server is running at the port : ",Port);
+//     connectDatabase();
+// })
 
