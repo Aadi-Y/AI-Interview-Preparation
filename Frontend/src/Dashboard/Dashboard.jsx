@@ -9,7 +9,7 @@ import { API_PATHS } from "../Utility/apiPath";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
-import CreateSession from "../CreateSession/createSession";
+import CreateSession from "../CreateSession/CreateSession";
 import Modal from "react-modal"
 import DeleteAlertContent from "../DeleteAlert/DeleteAlertContent";
 
