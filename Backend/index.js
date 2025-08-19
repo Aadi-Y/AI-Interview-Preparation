@@ -33,7 +33,6 @@ app.use("/api/ai",aiRoutes);
 
 app.get("/",(req,res)=>{
     res.status(200).json({
-        error:false,
         message:"Welcome to AI Interview Preparations"
     })
 })
