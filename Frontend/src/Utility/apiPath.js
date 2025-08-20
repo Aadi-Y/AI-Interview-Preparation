@@ -1,4 +1,5 @@
-export const BASE_URL = "https://ai-interview-preparation-vkrz.vercel.app";
+// export const BASE_URL = "https://ai-interview-preparation-vkrz.vercel.app";
+export const BASE_URL = "http://localhost:8000";
 
 export const API_PATHS = {
     AUTH:{

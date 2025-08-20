@@ -8,7 +8,6 @@ function DashboardLayout({children}) {
   return (
     <div >
         <Navbar/>
-
         <div>{children}</div>
     </div>
   )

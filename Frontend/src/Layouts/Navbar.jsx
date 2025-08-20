@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import UserProfile from "../UserProfile/UserProfile";
 import Modals from "../Modal/Modals";
 import { UserContext } from "../Context/UserProvider";
-import { useContext } from "react";
 
 function Navbar() {
-    const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
+
   return (
     <>
-      <section className="border border-gray-400 bg-white py-2">
-        <section>
-          <section className="flex items-center justify-between w-[80%] m-auto pt-5">
-            <div>
-              <h1 className="text-2xl">AI Interview Prep.</h1>
-            </div>
+      <nav
+        className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 
+                   shadow-sm z-20"
+      >
+        <div className="w-[50%] md:w-[80%] mx-auto flex items-center justify-between py-3">
 
-            <div>{user ? <UserProfile /> : <Modals />}</div>
-          </section>
-        </section>
-      </section>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent tracking-tight">
+            AI Interview Prep
+          </h1>
+
+          <div>{user ? <UserProfile /> : <Modals />}</div>
+        </div>
+      </nav>
+
+      <div className="h-16"></div>
     </>
   );
 }

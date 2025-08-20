@@ -25,7 +25,7 @@ function App() {
           <Route path="/interview-prep/:sessionId" element={<InterviewPrep/>}></Route>
           <Route path="/modal" element={<Modals/>}></Route>
           <Route path="/previewUrl" element={<PreviewUrl/>} ></Route>
-          <Route path="user" element={<UserProvider/>}></Route>
+          {/* <Route path="user" element={<UserProvider/>}></Route> */}
         </Routes>
       </Router>
     </>

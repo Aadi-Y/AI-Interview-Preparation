@@ -37,11 +37,11 @@ app.get("/",(req,res)=>{
     })
 })
 
-connectDatabase();
-module.exports = app;
+// connectDatabase();
+// module.exports = app;
 
-// app.listen(Port,()=>{
-//     console.log("Server is running at the port : ",Port);
-//     connectDatabase();
-// })
+app.listen(Port,()=>{
+    console.log("Server is running at the port : ",Port);
+    connectDatabase();
+})
 

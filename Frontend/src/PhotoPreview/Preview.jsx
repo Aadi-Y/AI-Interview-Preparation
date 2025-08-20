@@ -37,7 +37,7 @@ function Preview() {
           className="w-full h-full object-cover rounded-full"
         />
       ) : (
-        <LuUser size={70} className="text-sky-800"/>
+        <LuUser size={70} className="text-blue-500"/>
       )}
 
       <div className="absolute -bottom-2 right-2">
@@ -49,7 +49,7 @@ function Preview() {
           </button>
         ) : (
           <label style={{ cursor: "pointer" }} 
-          className="bg-sky-400 h-10 w-10 rounded-full flex items-center justify-center p-2"
+          className="bg-blue-500 h-10 w-10 rounded-full flex items-center justify-center p-2 text-white"
           >
             <LuUpload />
             <input

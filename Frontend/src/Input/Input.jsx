@@ -4,7 +4,7 @@ function Input({text,placeholder,onChange,value}){
             placeholder={placeholder}
             onChange={onChange}
             value={value}
-            className="border border-gray-300 px-2 py-3 rounded w-full focus:outline-sky-500"
+            className="border border-gray-300 px-2 py-3 rounded-xl w-full focus:outline-sky-500"
             />
     </>);
 }
