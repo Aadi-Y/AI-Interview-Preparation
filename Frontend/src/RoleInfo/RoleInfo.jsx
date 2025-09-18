@@ -11,15 +11,15 @@ function RoleInfo({role,experience,topicToFocus,description,lastUpated,questionL
                 </div>
 
                 <div className="flex gap-3 mt-3">
-                    <div className="border rounded-full p-2 bg-sky-400 border-none">
+                    <div className="border rounded-full p-2 bg-gradient-to-r from-blue-500 to-blue-600  border-none">
                         <p className="text-[13px] text-white">Experience {experience} {experience > 1 ? "Years" : "Year"}</p>
                     </div>
 
-                    <div className="border rounded-full p-2 bg-sky-400 border-none">
+                    <div className="border rounded-full p-2 bg-gradient-to-r from-blue-500 to-blue-600 border-none">
                         <p className="text-[13px] text-white">{questionLength} Q&A</p>
                     </div>
 
-                    <div className="border rounded-full p-2 bg-sky-400 border-none">
+                    <div className="border rounded-full p-2 bg-gradient-to-r from-blue-500 to-blue-600 border-none">
                         <p className="text-[13px] text-white">Last Updated {lastUpated}</p>
                     </div>
                 </div>

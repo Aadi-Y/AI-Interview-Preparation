@@ -12,7 +12,7 @@ function Navbar() {
         className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 
                    shadow-sm z-20"
       >
-        <div className="w-[50%] md:w-[80%] mx-auto flex items-center justify-between py-3">
+        <div className="w-[90%] md:w-[80%] mx-auto flex items-center justify-between py-3">
 
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent tracking-tight">
             AI Interview Prep

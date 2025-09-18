@@ -53,9 +53,10 @@ function Modals() {
         style={{
           overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
-            display: "flex", 
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            zIndex: 9998,
           },
           content: {
             width: "400px",
@@ -65,7 +66,8 @@ function Modals() {
             maxHeight: "90vh",
             overflowY: "auto",
             position: "relative",
-            inset: "unset", 
+            inset: "unset",
+            zIndex: 9999, 
           },
         }}
       >

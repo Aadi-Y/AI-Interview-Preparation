@@ -10,6 +10,7 @@ import { API_PATHS } from "../../Utility/apiPath";
 import { UserContext } from "../../Context/UserProvider";
 import { useContext } from "react";
 import Spinner from "../../Spinner/SpinnerLoader";
+import toast from "react-hot-toast";
 
 function SignUp({ handleModalClose }) {
   const [name, setName] = useState("");
@@ -87,10 +88,9 @@ function SignUp({ handleModalClose }) {
 
       if (token && response && response.data) {
         localStorage.setItem("token", token);
-
-        // If you have a user context, call updateUser(response.data) here
+        
         handleModalClose();
-        alert(response.data.message);
+        toast.success(response.data.message);
         navigate("/dashboard");
       }
 

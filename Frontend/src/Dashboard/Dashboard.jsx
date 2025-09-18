@@ -58,7 +58,7 @@ function Dashboard() {
     <DashboardLayout>
       <section className="white h-[100vh]">
         <section>
-          <section className="grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3 gap-0 p-4">
+          <section className="grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3 gap-0 p-0 lg:p-4 ">
             {session && session.length > 0 ? (
               session.map((sessionItem) => (
                 <SummaryCard
@@ -93,16 +93,23 @@ function Dashboard() {
             style={{
               overlay: {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
+                blur:"2px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 9998,
               },
               content: {
-                width: "520px",
-                margin: "auto",
+                minWidth:"300px",
+                maxWidth: "500px",
                 padding: "20px",
                 borderRadius: "10px",
                 height: "auto",
                 maxHeight: "90vh",
                 overflowY: "auto",
                 position: "relative",
+                inset: "unset",
+                zIndex: 9999, 
               },
             }}
           >
@@ -114,10 +121,11 @@ function Dashboard() {
             <CreateSession handleModalClosing={handleModalClosing} />
           </Modal>
 
-          {/* Delete Alert Modal */}
           <Modal
             isOpen={openDeleteAlert.open}
-            onRequestClose={() => setOpenDeleteAlert({ open: false, data: null })}
+            onRequestClose={() =>
+              setOpenDeleteAlert({ open: false, data: null })
+            }
             style={{
               overlay: {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -136,9 +144,7 @@ function Dashboard() {
           >
             <DeleteAlertContent
               content="Are you sure you want to delete this session?"
-              onDelete={() =>
-                handleDeleteSession(openDeleteAlert.data?._id)
-              }
+              onDelete={() => handleDeleteSession(openDeleteAlert.data?._id)}
               onCancel={() => setOpenDeleteAlert({ open: false, data: null })}
             />
           </Modal>

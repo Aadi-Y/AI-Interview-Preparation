@@ -26,7 +26,7 @@ function UserProfile(){
                         <p>{user}</p>
                     </div>
                     <div>
-                        <button className="hover:underline decoration-sky-500 cursor-pointer" onClick={logout}>Logout</button>
+                        <button className="cursor-pointer border rounded-xl px-2 text-white border-none bg-gradient-to-r from-blue-500 to-blue-600 hover:bg-blue-500 transition-all text-[15px] py-1" onClick={logout}>Logout</button>
                     </div>
                 </section>
             </section>

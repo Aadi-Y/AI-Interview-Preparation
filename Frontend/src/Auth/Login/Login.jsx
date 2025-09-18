@@ -9,6 +9,7 @@ import { API_PATHS } from "../../Utility/apiPath";
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserProvider";
 import Spinner from "../../Spinner/SpinnerLoader";
+import toast from "react-hot-toast";
 
 function Login({ handleModalClose }) {
   const [email, setEmail] = useState("");
@@ -64,7 +65,7 @@ function Login({ handleModalClose }) {
       }
 
       if (response && response.data) {
-        alert(response.data.message);
+        toast.success(response.data.message);
         handleModalClose();
         setIsLoading(false);
         navigate("/dashboard");

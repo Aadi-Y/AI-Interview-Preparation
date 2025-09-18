@@ -15,7 +15,7 @@ function SummaryCard({
   return (
     <section className="px-4">
       <div
-        className="bg-white border border-gray-300 mt-10 p-5 rounded-xl w-full sm:max-w-xl mx-auto 
+        className="bg-white border border-gray-300 mt-10 p-4 rounded-xl w-full sm:max-w-xl mx-auto 
         grid gap-4 relative group cursor-pointer 
         shadow-sm hover:shadow-md hover:border-sky-400 transition-all duration-300"
         onClick={onSelect}
