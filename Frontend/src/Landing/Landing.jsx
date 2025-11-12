@@ -215,6 +215,7 @@ function Landing() {
       <footer className="px-6 md:px-20 py-6 text-center text-white bg-blue-500 mt-10 shadow-md">
         © {new Date().getFullYear()} AI Interview Prep. All rights reserved.
       </footer>
+      
     </div>
   );
 }
