@@ -1,8 +1,10 @@
-const { GoogleGenAI } = require("@google/genai");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+// const Groq = require("groq-sdk");
 const { questionAnswerPrompt,
     conceptExplainPrompt } = require("../utils/prompt");
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+// const groq = new Groq({ apiKey: process.env.GEMINI_A });
 
 
 // @desc Generate interview questions and answers using Gemini
@@ -28,20 +30,26 @@ const generateQuestions = async (req, res) => {
         const prompt = questionAnswerPrompt(role, experience, topicToFocus, numberOfQuestions);
         console.log(prompt);
 
-        const response = await ai.models.generateText({
-            model: "gemma-3-4b-it",
-            prompt: prompt
+        // 1. Initialize the model (Standard SDK setup)
+        const model = genAI.getGenerativeModel({
+            model: "gemini-2.5-flash",
+            // OPTIONAL: Force JSON output directly from the model (Best Practice)
+            generationConfig: { responseMimeType: "application/json" }
         });
 
-        const rawText = response.text;
+        // 2. Generate Content
+        const result = await model.generateContent(prompt);
 
+        // 3. Extract text (Note: it is a function call .text(), not a property)
+        const rawText = result.response.text();
 
-        //Clean the response before use
+        // 4. Clean the response (Your regex logic is excellent here)
         const cleanedText = rawText
-            .replace(/^```json\s*/, "") // remove starting of json
-            .replace(/```$/, "") //remove ending of json
-            .trim(); //remove extra spaces
+            .replace(/^```json\s*/, "") // Remove starting ```json
+            .replace(/```$/, "")        // Remove ending ```
+            .trim();                    // Remove extra white space
 
+        // 5. Parse
         const data = JSON.parse(cleanedText);
 
         res.status(200).json({
@@ -72,18 +80,26 @@ const generateExplanation = async (req, res) => {
 
         const prompt = conceptExplainPrompt(question);
 
-        const response = await ai.models.generateContent({
-            model: "gemma-3-4b",
-            contents: prompt
-        })
+        // 1. Initialize the model (Standard SDK setup)
+        const model = genAI.getGenerativeModel({
+            model: "gemini-2.5-flash",
+            // OPTIONAL: Force JSON output directly from the model (Best Practice)
+            generationConfig: { responseMimeType: "application/json" }
+        });
 
-        let rawText = response.text;
+        // 2. Generate Content
+        const result = await model.generateContent(prompt);
 
+        // 3. Extract text (Note: it is a function call .text(), not a property)
+        const rawText = result.response.text();
+
+        // 4. Clean the response (Your regex logic is excellent here)
         const cleanedText = rawText
-            .replace(/^```json\s*/, "") // remove starting of json
-            .replace(/```$/, "") //remove ending of json
-            .trim(); //remove extra spaces
+            .replace(/^```json\s*/, "") // Remove starting ```json
+            .replace(/```$/, "")        // Remove ending ```
+            .trim();                    // Remove extra white space
 
+        // 5. Parse
         const data = JSON.parse(cleanedText);
 
         res.status(201).json({
