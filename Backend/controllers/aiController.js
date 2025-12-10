@@ -28,17 +28,10 @@ const generateQuestions = async (req, res) => {
         const prompt = questionAnswerPrompt(role, experience, topicToFocus, numberOfQuestions);
         console.log(prompt);
 
-        const response = await ai.models.generateContent({
-            model: "gemma-3-4b",
-            contents: [
-                {
-                    parts: [
-                        { text: prompt }
-                    ]
-                }
-            ]
+        const response = await ai.models.generateText({
+            model: "gemma-3-4b-it",
+            prompt: prompt
         });
-
 
         const rawText = response.text;
 
