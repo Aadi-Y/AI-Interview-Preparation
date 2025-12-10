@@ -73,7 +73,7 @@ const generateExplanation = async(req,res) => {
         const prompt = conceptExplainPrompt(question);
 
         const response = await ai.models.generateContent({
-            model:"gemini-2.0-flash-lite",
+            model:"gemma-3-4b",
             contents:prompt
         })
 
