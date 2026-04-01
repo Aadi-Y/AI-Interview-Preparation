@@ -102,7 +102,6 @@ const generateExplanation = async (req, res) => {
         // 5. Parse
         const data = JSON.parse(cleanedText);
 
-        
         res.status(201).json({
             error: false,
             data
